@@ -58,7 +58,13 @@
 3. **声11本**：stage `voice`（`batch_voice.json` も書かれる。`cp $P/episodes/batch_voice.json /home/user/epNN/`）。
    `python3 $PL/voice_spec.py /home/user/epNN pre` が OK なら、出力を `generate_audio_batch` へ（index 0 → `vintro`, 1..10 → `v01..v10`）。
 4. **2コマ目10枚**：`jobs.aNN` が全部そろってから stage `b` → `generate_image_batch`。
-5. **導入動画**：`jobs.intro` がそろってから stage `video` → `generate_video`（Kling 3.0 Turbo、5秒、約7.5cr）。
+5. **導入の絵の字幕チェック（導入動画の前に必ず）**：`mkdir -p /home/user/epNN && cp $P/episodes/epNN.json /home/user/epNN/episode.json && python3 $PL/fetch.py /home/user/epNN intro`
+   → `python3 $PL/layout_check.py /home/user/epNN` と `chk/layout.jpg` の目視（`image_paths`）。
+   - 字幕（英語・日本語）の箱に奥のキャラの頭・耳・帽子や物が入っていたら NG（終了コード1）。stage `intro` をもう一度送って描き直す（1枚0.5cr、**2回まで**）。
+   - 2回描き直しても NG なら、いちばん数値の小さい絵を使い `notes` に書く。
+   - 構図の見本は第1・2・5・12回の導入の絵で固定（`series.json` の `references.intro_layout_samples`）。前の回の絵は見本にしない。
+     参照が多すぎて生成が拒否されたら、`epNN.json` に `"layout_samples": ["3b9c474d-fd42-4d47-9445-f4466df532c9", "72708e06-932d-4e87-b3a4-2386baa955e0"]` を書いて送り直す。
+6. **導入動画**：5. が OK の絵（`jobs.intro`）で stage `video` → `generate_video`（Kling 3.0 Turbo、5秒、約7.5cr）。
    - モデル名などが変わって拒否されたら `models_explore` で同等のもの（Kling 3.0 系、5秒、720p、start_image）を探し、`epNN.json` の `notes` に書く。
    - 画像モデル `gpt_image_2_5` が拒否されたときも同様（`gpt_image_2_6` など）。
 
@@ -71,7 +77,7 @@
    - 耳の数（ぽん2・ホップ2・マフィン2）、ホップの耳が頭についている、マフィンのしっぽが1本で太く体についている、手足が2本ずつ、目が2つ
    - 絵の中に文字・数字・看板がない／主役の物が大きくはっきり／上の35%が空いている
    - 1コマ目と2コマ目で物の形と位置が同じ（終了コード3＝大きくずれている語がある）
-   - 導入：手前にぽん、奥に4人が並ぶ。空が上32%、太陽が小さい。
+   - 導入：手前にぽん、奥に4人が小さく低く並ぶ。上のほうは空だけで、字幕に何も重ならない（2. の5番で確認済み）。
    問題のある語は、1コマ目なら stage `redo N` → `generate_image_batch`（その語の2コマ目も stage `b` の N 番目だけで作り直す）、2コマ目だけなら stage `b` の N 番目だけを送る。
    **描き直しは1話で合計6枚まで**。作り直したら `fetch.py` で取り込み直して `images` をやり直す。
 4. **導入動画**：`bash $PL/run.sh clip /home/user/epNN` と `chk/clip/*_sheet.jpg` の目視。
@@ -96,7 +102,6 @@
 
 1. `used_words.json` の `episodes` に N（theme_en, theme_ja, words）を足す。`theme_ideas.md` の使ったテーマに「第N回」と書く。
 2. `state.json`：`next_episode` を N+1、`in_progress` を null、`last_intro_image` を `jobs.intro.id`、`history` に1行。
-   `series.json` の `references.intro_layout_sample_latest` も `jobs.intro.id` にする（次の導入絵の見本）。
 3. `$P/LOG.md` の2行目の後ろに1行（日付・回・テーマ・使ったクレジット・納品先・気になった点）。
 4. **保存**：`cd /home/user/pon-repo && tar czf /home/user/pon_state.tgz pon` → `media_upload`（`filename: "pon_state_epNN.tgz"`, `source_type: "file_input"`）
    → サンドボックスで `curl -f -X PUT -H 'Content-Type: application/gzip' -H 'If-None-Match: *' --upload-file /home/user/pon_state.tgz '<url>'`

@@ -77,8 +77,22 @@
   },
   "references": {
     "style": "7647d300-7ad6-4a0d-9498-68ab980b0288",
-    "intro_layout_sample_latest": "3eb0c4c6-ab4c-4e01-bf77-7c134c1c7d4b",
-    "_note": "すべて image_job ID。medias に {role:'image', value:ID} で渡す。intro_layout_sample_latest は回ごとに最新の導入絵の ID に更新する（state.json の last_intro_image が優先）。"
+    "_note": "すべて image_job ID。medias に {role:'image', value:ID} で渡す。",
+    "intro_layout_samples": {
+      "ids": [
+        "e658eda0-0e3f-4d94-861f-1e7d93445740",
+        "1de26da1-c67e-4cb1-8ea5-298b42c130f4",
+        "3b9c474d-fd42-4d47-9445-f4466df532c9",
+        "72708e06-932d-4e87-b3a4-2386baa955e0"
+      ],
+      "episodes": [
+        1,
+        2,
+        5,
+        12
+      ],
+      "_note": "導入の絵の構図の見本（ユーザー指定、第22回から固定）。前の回の導入の絵を見本にしない（第19〜21回で奥の列が少しずつ上がり、日本語の字幕に重なった）。参照の数が多すぎて拒否されたら、後ろの2つ（第5・12回）だけにして prompts.py の {N_LAYOUT} も合わせる。"
+    }
   },
   "characters": {
     "pon": {
@@ -158,7 +172,7 @@
     "anatomy_common": "Natural animal anatomy, every body part attached to the body and drawn as one smooth continuous shape: exactly two eyes, and two arms and two legs for a standing character; nothing extra, missing, merged, twisted or detached.",
     "eyes_open": " Eyes are open with clear black pupils.",
     "muffin_eyes_scene": "heavy half-lidded sleepy eyes, exactly the same sleepy eye shape as in the reference image; not round wide-open eyes.",
-    "intro_image": "Crayon and colored-pencil style children's picture book illustration, thick dark brown outlines, bright saturated colors, vertical 9:16, same style as the style reference. Keep the composition of the LAST reference image exactly (a green hill, four friends standing in a row in the back, one big friend in front, a small sun in the top-right corner, soft clouds), but REDRAW every character in the NEW scene. In front, {FRONT_SCENE} Pon always wears his yellow cross-body shoulder bag. In the back row, from left to right: {BACK_ROW}. All four smile and wave one hand. The top 32% of the picture is only blue sky, a small sun (no more than 12% of the picture width) in the top-right corner and soft clouds. The hill ridge is below the 35% line. No text, no letters, no numbers. {ANATOMY_COMMON} {ANATOMY_ALL} Every character keeps exactly the outfit and colors of its own reference image; nothing new is worn or attached.",
+    "intro_image": "Crayon and colored-pencil style children's picture book illustration, thick dark brown outlines, bright saturated colors, vertical 9:16, same style as the style reference. The LAST {N_LAYOUT} reference images are layout samples from earlier episodes: follow their layout — a wide open sky with a small sun (no more than 12% of the picture width) and soft clouds fills the top 40% of the picture with nothing else drawn there, and the characters stand low on a green hill. Draw a NEW scene for today's theme; do not copy the objects or animals of the layout samples. In front, {FRONT_SCENE} Pon always wears his yellow cross-body shoulder bag. Pon stands in the lower half of the picture. Behind Pon, lower on the hill and drawn small (each friend about one sixth of the picture height), from left to right: {BACK_ROW}. The tops of their heads, hats and ears all stay below the 42% line of the picture, with only sky above them. All four smile and wave one hand. No text, no letters, no numbers. {ANATOMY_COMMON} {ANATOMY_ALL} Every character keeps exactly the outfit and colors of its own reference image; nothing new is worn or attached.",
     "intro_video": "Keep the composition unchanged, only very small movements. Every character keeps the exact body shape and drawing style of the start image in every frame: the bunny's two long ears stay attached to the head with the same shape and length, the cat's tail stays one thick attached tail, nobody grows, loses or merges any ear, limb, tail, {PROP} or face; no morphing, no melting; all dark outlines stay sharp and crisp in every frame. The four friends in the back row smile and wave one hand very gently. The elephant in front {FRONT_MOTION}; nothing is shaken or moved fast. {PROP_RULE} The bodies never become transparent and never melt into the grass. Fixed camera, no text."
   },
   "text_layout": {

@@ -113,8 +113,9 @@ def main(argv):
         p = PB['intro_image']
         for k, v in (('{FRONT_SCENE}', it['front_scene'].strip()), ('{BACK_ROW}', back), ('{ANATOMY_COMMON}', PB['anatomy_common']), ('{ANATOMY_ALL}', anat)):
             p = p.replace(k, v)
-        layout = ep.get('layout_sample') or S['references']['intro_layout_sample_latest']
-        out = img_params(re.sub(r'\s+', ' ', p).strip(), [S['references']['style']] + [CH[k]['ref'] for k in S['rotation']] + [layout])
+        layout = ep.get('layout_samples') or S['references']['intro_layout_samples']['ids']   # 構図の見本は固定（前の回の絵は使わない）
+        p = p.replace('{N_LAYOUT}', {1: 'ONE', 2: 'TWO', 3: 'THREE', 4: 'FOUR'}[len(layout)])
+        out = img_params(re.sub(r'\s+', ' ', p).strip(), [S['references']['style']] + [CH[k]['ref'] for k in S['rotation']] + list(layout))
     elif stage == 'video':
         it = ep['intro']; j = jobs.get('intro', {}).get('id')
         if not j: sys.exit('jobs.intro.id がない')
