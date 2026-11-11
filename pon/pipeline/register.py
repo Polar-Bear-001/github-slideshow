@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # 2コマ目(B)を1コマ目(A)に位置合わせする（第18〜20回 measure18.py + reg_lib.py）。
 #   入力: <ep>/img/a01..a10.png, b01..b10.png   出力: <ep>/img/01..10.png（=A）, f01..f10.png（位置合わせ後のB、または元のB）
-#   判定: SIFT の一致点のずれ（中央値）が 2px 以上あり、位置合わせで 30% 以上減るときだけ位置合わせ後を使う
-#         （第20回: Beach は中央値 5.0px→改善24% で「使わない」と判断していた）。
+#   判定: SIFT の一致点のずれ（中央値）が 1px 以上あり、位置合わせで 25% 以上減るときだけ位置合わせ後を使う
+#         （第20回の判断と一致: School/Zoo/Farm/Store は位置合わせ、Beach は改善24%で使わない）。
 #   ずれの中央値が 12px を超える組は「描き直し候補」として表示し、終了コード 3 を返す。
 import cv2, numpy as np, sys, os, shutil, json
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -42,7 +42,7 @@ for n in range(1, 11):
     h, w = A.shape[:2]; Bw = cv2.warpAffine(B, M, (w, h), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REFLECT)
     d2 = disp(A, Bw)
     before, after = float(np.median(d)), float(np.median(d2))
-    use = before >= 2.0 and after <= before * 0.7
+    use = before >= 1.0 and after <= before * 0.75
     shutil.copy('%s/a%02d.png' % (I, n), '%s/%02d.png' % (I, n))
     if use: cv2.imwrite('%s/f%02d.png' % (I, n), Bw)
     else: shutil.copy('%s/b%02d.png' % (I, n), '%s/f%02d.png' % (I, n))

@@ -1,6 +1,6 @@
 #!/bin/bash
 # Higgsfield サンドボックスで動かす入口。リポジトリを最新にして、決まった順に処理する。
-#   bash run.sh setup                 # リポジトリの取得/更新・フォント/見本素材の確認（毎回最初に）
+#   bash run.sh setup                 # 正本・フォント・見本素材・Python の確認（毎回最初に）
 #   bash run.sh check  <ep>           # 素材がそろっているか
 #   bash run.sh images <ep>           # register -> sheets words
 #   bash run.sh voices <ep>           # voice_spec post -> wcheck
@@ -13,13 +13,8 @@ cmd=$1; EPD=${2:-}
 
 case $cmd in
 setup)
-  BR=${PON_BRANCH:-claude/pon-english-word-video-auto-1uw057}
-  if [ -d $H/pon-repo/.git ]; then
-    git -C $H/pon-repo fetch -q origin $BR && git -C $H/pon-repo checkout -q -B $BR origin/$BR
-  else
-    git clone -q --depth 20 -b $BR https://github.com/Polar-Bear-001/github-slideshow.git $H/pon-repo
-  fi
-  git -C $H/pon-repo log --oneline -1
+  # 正本はサンドボックスの /home/user/pon-repo/pon（GitHub は使わない。RUNBOOK「置き場所」）
+  [ -s $H/pon-repo/pon/state.json ] || echo "MISSING $H/pon-repo/pon/state.json"
   ok=1
   for f in fonts/Fredoka.ttf fonts/ZenMaru-Bold.ttf fonts/HachiMaruPop-Regular.ttf ref/ep11_v.mp4 ref/ep11_l.mp4 ref/ref11.wav; do
     [ -s $H/$f ] || { echo "MISSING $H/$f"; ok=0; }

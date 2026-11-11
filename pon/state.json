@@ -3,12 +3,23 @@
   "next_episode": 21,
   "last_intro_image": "3eb0c4c6-ab4c-4e01-bf77-7c134c1c7d4b",
   "last_published_v": "/home/user/ep20/ep20_v.mp4",
-  "project_id": null,
-  "folder_id": null,
+  "project_id": "74816559-c020-431a-9dbd-d7be7959fece",
+  "folder_id": "74816559-c020-431a-9dbd-d7be7959fece",
   "in_progress": null,
   "paused": false,
   "pause_reason": null,
   "history": [
-    {"episode": 20, "theme": "Places / ばしょ", "date": "2026-11-11", "mode": "manual"}
-  ]
+    {
+      "episode": 20,
+      "theme": "Places / ばしょ",
+      "date": "2026-11-11",
+      "mode": "manual"
+    }
+  ],
+  "backup": {
+    "assets_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L8YlIoEYhXdySR9OTlopevQUK6/3088cdd7-1543-480f-9167-8fc9a4e7b6d8.tgz",
+    "assets_md5": "78e4e145f840c742f5fcfade7d99395e",
+    "_note": "fonts/ (3) + ref/ep11_v.mp4, ep11_l.mp4, ref11.wav. /home/user で tar xzf する。",
+    "pipeline_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L8YlIoEYhXdySR9OTlopevQUK6/b5f7e374-fece-4030-a482-15eac4cae196.tgz"
+  }
 }
