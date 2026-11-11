@@ -6,7 +6,7 @@
 ## しくみ
 
 ```
-スケジュール（毎日 10:13 と 19:13 JST）
+スケジュール（毎日 7:30 と 18:30 JST）
    └─ Claude のクラウドセッションが起動し、pon/RUNBOOK.md の手順で1話つくる
         1. 企画   … 未使用のテーマと10語を選び、絵の指示を英語で書く（pon/episodes/epNN.json）
         2. 生成   … Higgsfield で絵21枚（GPT Image）・導入動画1本（Kling 3.0 Turbo）・声11本（ElevenLabs v4）
