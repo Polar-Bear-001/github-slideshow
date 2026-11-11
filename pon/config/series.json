@@ -5,55 +5,115 @@
   "sandbox_root": "/home/user",
   "repo_url": "https://github.com/Polar-Bear-001/github-slideshow.git",
   "repo_branch": "claude/pon-english-word-video-auto-1uw057",
-
   "format": {
     "total_sec": 60.5,
     "fps": 30,
     "frames": 1815,
-    "vertical": [1080, 1920],
-    "landscape": [1920, 1080],
-    "segments": {"intro": [0, 4], "words": [4, 44], "review": [44, 55], "good_job": [55, 57], "bye": [57, 60.5]}
+    "vertical": [
+      1080,
+      1920
+    ],
+    "landscape": [
+      1920,
+      1080
+    ],
+    "segments": {
+      "intro": [
+        0,
+        4
+      ],
+      "words": [
+        4,
+        44
+      ],
+      "review": [
+        44,
+        55
+      ],
+      "good_job": [
+        55,
+        57
+      ],
+      "bye": [
+        57,
+        60.5
+      ]
+    }
   },
-
   "budget": {
     "max_credits_per_episode": 30,
     "min_balance_to_start": 60,
-    "estimate": {"image_each": 0.5, "images": 21, "intro_video": 7.5, "voice_each": 0.23, "voices": 11, "total": 20.5},
+    "estimate": {
+      "image_each": 0.5,
+      "images": 21,
+      "intro_video": 7.5,
+      "voice_each": 0.23,
+      "voices": 11,
+      "total": 20.5
+    },
     "max_redraw_images_per_episode": 6,
     "max_intro_video_retries": 1
   },
-
   "models": {
-    "image": {"model": "gpt_image_2_5", "aspect_ratio": "9:16", "quality": "medium", "resolution": "1k"},
-    "intro_video": {"model": "kling3_0_turbo", "duration": 5, "resolution": "720p", "use_first_sec": 4},
-    "voice": {"model": "elevenlabs_v4", "params_only": ["prompt", "dialogue"]}
+    "image": {
+      "model": "gpt_image_2_5",
+      "aspect_ratio": "9:16",
+      "quality": "medium",
+      "resolution": "1k"
+    },
+    "intro_video": {
+      "model": "kling3_0_turbo",
+      "duration": 5,
+      "resolution": "720p",
+      "use_first_sec": 4
+    },
+    "voice": {
+      "model": "elevenlabs_v4",
+      "params_only": [
+        "prompt",
+        "dialogue"
+      ]
+    }
   },
-
   "references": {
     "style": "7647d300-7ad6-4a0d-9498-68ab980b0288",
     "intro_layout_sample_latest": "3eb0c4c6-ab4c-4e01-bf77-7c134c1c7d4b",
     "_note": "すべて image_job ID。medias に {role:'image', value:ID} で渡す。intro_layout_sample_latest は回ごとに最新の導入絵の ID に更新する（state.json の last_intro_image が優先）。"
   },
-
   "characters": {
     "pon": {
-      "ja": "ぽん", "en": "Pon", "ref": "30816780-0802-4c13-b558-e45d5c656cdc",
-      "voice": {"name": "Archie", "voice_id": "bd072316-f77c-588b-b6e5-e46b9b03d008"},
+      "ja": "ぽん",
+      "en": "Pon",
+      "ref": "30816780-0802-4c13-b558-e45d5c656cdc",
+      "voice": {
+        "name": "Archie",
+        "voice_id": "bd072316-f77c-588b-b6e5-e46b9b03d008"
+      },
       "design": "Pon: gray-blue baby elephant with big round ears (pink inside), big black eyes with white highlights, a dark tuft at the tail tip, and a yellow cross-body shoulder bag; ears large and round, each about as big as the face.",
       "anatomy": "Pon: one trunk drawn as one smooth tube, exactly two round ears, one small tail with a dark tuft.",
       "short": "Pon the gray-blue baby elephant"
     },
     "hop": {
-      "ja": "ホップ", "en": "Hop", "ref": "19eef513-bc88-4e45-aff9-d7e32316b612",
-      "voice": {"name": "Bella", "voice_id": "eba85120-4ed5-5202-a6f6-696e2c6fe2b6"},
+      "ja": "ホップ",
+      "en": "Hop",
+      "ref": "19eef513-bc88-4e45-aff9-d7e32316b612",
+      "voice": {
+        "name": "Bella",
+        "voice_id": "eba85120-4ed5-5202-a6f6-696e2c6fe2b6"
+      },
       "design": "Hop: pink bunny with very long floppy ears, white muzzle, chest and tummy, and a red neckerchief.",
       "anatomy": "Hop: exactly two long floppy ears, one on each side of the top of the head, each attached to the head at its base, both the same length and width, never twisting, merging, splitting or breaking; one small round white cotton tail.",
       "short": "Hop the pink bunny with two long ears hanging straight down on the two sides of the head, fully inside the frame",
       "pose_rule": "ears hang straight down on the two sides of the head and are never hidden behind anything"
     },
     "muffin": {
-      "ja": "マフィン", "en": "Muffin", "ref": "89cd8e84-89ef-46d0-899a-2b617e3c1ecd",
-      "voice": {"name": "Bob", "voice_id": "ca12fd00-218c-5198-b10c-7d36e768c12c"},
+      "ja": "マフィン",
+      "en": "Muffin",
+      "ref": "89cd8e84-89ef-46d0-899a-2b617e3c1ecd",
+      "voice": {
+        "name": "Bob",
+        "voice_id": "ca12fd00-218c-5198-b10c-7d36e768c12c"
+      },
       "design": "Muffin: orange tabby cat with darker stripes, white muzzle, chest and paws, long whiskers, a green bib apron, and heavy half-lidded sleepy eyes (upper eyelids cover the top half of the eyes, small dark pupils, no sparkle highlights) as in the reference image.",
       "anatomy": "Muffin: exactly two pointed ears and exactly one long thick striped tail that grows from the base of the spine behind the hip, thick at the base and tapering gently to a rounded white tip, fully visible and attached to the body (never a thin hook, a short stub, a floating piece or a second tail).",
       "short": "Muffin the orange tabby cat with heavy half-lidded sleepy eyes and one thick striped tail hanging straight down beside the body",
@@ -61,36 +121,53 @@
       "sleepy_eyes": true
     },
     "sky": {
-      "ja": "スカイ", "en": "Sky", "ref": "3303f341-ca66-402a-a92e-e6e814e38275",
-      "voice": {"name": "Annie", "voice_id": "f2801b0f-e345-598e-86f5-8364d886d96b"},
+      "ja": "スカイ",
+      "en": "Sky",
+      "ref": "3303f341-ca66-402a-a92e-e6e814e38275",
+      "voice": {
+        "name": "Annie",
+        "voice_id": "f2801b0f-e345-598e-86f5-8364d886d96b"
+      },
       "design": "Sky: bright blue round bird with a red knit beanie with a pompom, an orange beak, thin legs and a small tuft on the head.",
       "anatomy": "Sky: two wings, two thin legs, one beak, one short tail.",
       "short": "Sky the bright blue round bird with a red knit beanie"
     },
     "ben": {
-      "ja": "ベン", "en": "Ben", "ref": "7e9d59b7-deaf-4a2a-8d19-85ba0239be89",
-      "voice": {"name": "Grady", "voice_id": "e2a2d2e6-9ed2-59cd-82af-feaa27f8a678"},
+      "ja": "ベン",
+      "en": "Ben",
+      "ref": "7e9d59b7-deaf-4a2a-8d19-85ba0239be89",
+      "voice": {
+        "name": "Grady",
+        "voice_id": "e2a2d2e6-9ed2-59cd-82af-feaa27f8a678"
+      },
       "design": "Ben: bright green turtle with a brown shell with orange-brown patterns, a yellow-green belly and round red-rimmed glasses.",
       "anatomy": "Ben: round shell attached to the back, one small tail, round glasses on the face.",
       "short": "Ben the green turtle with round red-rimmed glasses and a brown shell"
     }
   },
-  "rotation": ["pon", "hop", "muffin", "sky", "ben"],
-
+  "rotation": [
+    "pon",
+    "hop",
+    "muffin",
+    "sky",
+    "ben"
+  ],
   "prompt_blocks": {
     "word_first": "Crayon and colored-pencil style children's picture book illustration on warm cream paper, thick dark brown outlines, bright saturated colors, vertical 9:16. {HERO} is the hero of the picture, drawn large and clear. {SCENE} Two tiny colorful sparkle shapes float nearby. The whole body of {CHAR} is visible. Keep everything in the lower 65% of the picture: the top 35% is completely empty cream paper. Background: plain cream paper with only a thin brown ground line and a small soft shadow. No text, no letters, no numbers, no written signs. {DESIGN} {ANATOMY_COMMON} {ANATOMY} Every character keeps exactly this outfit and these colors; nothing new is worn or attached.{EYES}",
     "word_second_prefix": "Draw the SAME picture again, almost an exact copy, like tracing the FIRST reference image: keep EVERY object at exactly the same position and the same size within a few pixels (buildings, props, ground line). Every ear, tail and limb keeps the same shape, length, thickness and attachment point as in the first reference picture. Only tiny changes: {CHANGES}. ",
     "anatomy_common": "Natural animal anatomy, every body part attached to the body and drawn as one smooth continuous shape: exactly two eyes, and two arms and two legs for a standing character; nothing extra, missing, merged, twisted or detached.",
     "eyes_open": " Eyes are open with clear black pupils.",
     "muffin_eyes_scene": "heavy half-lidded sleepy eyes, exactly the same sleepy eye shape as in the reference image; not round wide-open eyes.",
-    "intro_image": "Crayon and colored-pencil style children's picture book illustration, thick dark brown outlines, bright saturated colors, vertical 9:16, same style as the style reference. Keep the composition of the LAST reference image exactly (a green hill, four friends standing in a row in the back, one big friend in front, a small sun in the top-right corner, soft clouds), but REDRAW every character in the NEW scene. In front, {FRONT_SCENE} In the back row, from left to right: {BACK_ROW}. All four smile and wave one hand. The top 32% of the picture is only blue sky, a small sun (no more than 12% of the picture width) in the top-right corner and soft clouds. The hill ridge is below the 35% line. No text, no letters, no numbers. {ANATOMY_COMMON} {ANATOMY_ALL} Every character keeps exactly the outfit and colors of its own reference image; nothing new is worn or attached.",
+    "intro_image": "Crayon and colored-pencil style children's picture book illustration, thick dark brown outlines, bright saturated colors, vertical 9:16, same style as the style reference. Keep the composition of the LAST reference image exactly (a green hill, four friends standing in a row in the back, one big friend in front, a small sun in the top-right corner, soft clouds), but REDRAW every character in the NEW scene. In front, {FRONT_SCENE} Pon always wears his yellow cross-body shoulder bag. In the back row, from left to right: {BACK_ROW}. All four smile and wave one hand. The top 32% of the picture is only blue sky, a small sun (no more than 12% of the picture width) in the top-right corner and soft clouds. The hill ridge is below the 35% line. No text, no letters, no numbers. {ANATOMY_COMMON} {ANATOMY_ALL} Every character keeps exactly the outfit and colors of its own reference image; nothing new is worn or attached.",
     "intro_video": "Keep the composition unchanged, only very small movements. Every character keeps the exact body shape and drawing style of the start image in every frame: the bunny's two long ears stay attached to the head with the same shape and length, the cat's tail stays one thick attached tail, nobody grows, loses or merges any ear, limb, tail, {PROP} or face; no morphing, no melting; all dark outlines stay sharp and crisp in every frame. The four friends in the back row smile and wave one hand very gently. The elephant in front {FRONT_MOTION}; nothing is shaken or moved fast. {PROP_RULE} The bodies never become transparent and never melt into the grass. Fixed camera, no text."
   },
-
   "text_layout": {
-    "word_en_font_v": 230, "word_ja_font_v": 125,
-    "theme_en_font_v_standard": 240, "theme_en_font_l_standard": 270,
-    "theme_en_max_w_v": 1000, "theme_en_max_w_l": 1060,
+    "word_en_font_v": 230,
+    "word_ja_font_v": 125,
+    "theme_en_font_v_standard": 240,
+    "theme_en_font_l_standard": 270,
+    "theme_en_max_w_v": 1000,
+    "theme_en_max_w_l": 1060,
     "_note": "テーマ英語は長いと紙からはみ出すので、render_v/render_l が最大幅で自動縮小する（第18回 Feelings! 以降の扱い）。"
   }
 }
