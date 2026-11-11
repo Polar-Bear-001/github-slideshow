@@ -1,0 +1,14 @@
+{
+  "_comment": "自動制作の進み具合。毎回の実行の最後に更新して push する。",
+  "next_episode": 21,
+  "last_intro_image": "3eb0c4c6-ab4c-4e01-bf77-7c134c1c7d4b",
+  "last_published_v": "/home/user/ep20/ep20_v.mp4",
+  "project_id": null,
+  "folder_id": null,
+  "in_progress": null,
+  "paused": false,
+  "pause_reason": null,
+  "history": [
+    {"episode": 20, "theme": "Places / ばしょ", "date": "2026-11-11", "mode": "manual"}
+  ]
+}
