@@ -97,6 +97,8 @@
    HTTP 200 を確かめてから `media_confirm`（type `video`）。
 3. `attach_project_asset`（source `{type: "video_input", id: <media_id>}`、folder は `state.json` の `folder_id`）で2本ともプロジェクトに入れる。
 4. media_id と URL を `epNN.json` の `deliverables` に書く。`status` を `"done"`（目視で気になる点が残れば `"done_with_notes"`）。
+5. **キャプション**：テーマに合う絵文字2つと導入の一言を `epNN.json` に `"caption_emoji": ["🍳", "🥄"]`, `"caption_lead": "台所にあるもの"` のように書き（任意）、
+   `python3 $PL/caption.py $P/episodes/epNN.json` で `$P/episodes/epNN_caption.txt` を作る。中身は最後の返答にそのまま（コードブロックで）載せる。
 
 ## 6. 記録・保存・終了
 
@@ -106,7 +108,8 @@
 4. **保存**：`cd /home/user/pon-repo && tar czf /home/user/pon_state.tgz pon` → `media_upload`（`filename: "pon_state_epNN.tgz"`, `source_type: "file_input"`）
    → サンドボックスで `curl -f -X PUT -H 'Content-Type: application/gzip' -H 'If-None-Match: *' --upload-file /home/user/pon_state.tgz '<url>'`
    → `media_confirm`（type `file`, source_type `file_input`）→ `attach_project_asset`（source `{type: "file_input", id}`、同じフォルダ）。
-5. 最後の返答に、テーマ・10語・使ったクレジット・残高・納品先（プロジェクト名と動画の URL）・目視で気になった点を短く書く。
+5. 最後の返答に、テーマ・10語・使ったクレジット・残高・納品先（プロジェクト名と動画の URL）・目視で気になった点を短く書き、
+   そのあとに投稿用キャプション（`epNN_caption.txt` の中身）をコピーしやすいようにコードブロックで載せる。
 
 ## 止める条件（作らずに/途中で止めて報告する）
 
