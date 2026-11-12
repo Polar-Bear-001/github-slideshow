@@ -1,26 +1,335 @@
 {
-  "_comment": "使用済みの単語（英語）。新しい回の10語はここと重ならないこと（大文字小文字・単複を無視して照合）。第10・11回は台本の候補表にあった12語を全部入れてある（実際に使った10語が特定できないので安全側）。第1回は台本が見つからず、分かっている語だけ。食べ物の基本語（Apple, Banana, Bread ほか）は第1回で使ったものとして、食べ物テーマは避ける。",
+  "_comment": "使用済みの単語（英語）。新しい回の10語はここと重ならないこと（大文字小文字・単複を無視して照合）。第10・11回は台本の候補表にあった12語を全部入れてある（実際に使った10語が特定できないので安全側）。第1回はぬりえ素材のファイル名から10語を確認した。",
   "episodes": {
-    "1":  {"theme_en": "Food", "theme_ja": "たべもの", "words": ["Apple", "Banana", "Bread"], "incomplete": true},
-    "2":  {"theme_en": "Animals", "theme_ja": "どうぶつ", "words": ["Dog", "Cat", "Bird", "Rabbit", "Pig", "Cow", "Monkey", "Lion", "Elephant", "Turtle"]},
-    "3":  {"theme_en": "Vehicles", "theme_ja": "のりもの", "words": ["Car", "Bus", "Train", "Plane", "Ship", "Bike", "Truck", "Taxi", "Helicopter", "Rocket"]},
-    "4":  {"theme_en": "Sea Animals", "theme_ja": "うみのいきもの", "words": ["Fish", "Whale", "Dolphin", "Octopus", "Crab", "Shark", "Jellyfish", "Starfish", "Seal", "Penguin"]},
-    "5":  {"theme_en": "Toys", "theme_ja": "おもちゃ", "words": ["Ball", "Doll", "Block", "Teddy bear", "Balloon", "Trumpet", "Drum", "Puzzle", "Robot", "Crayon"]},
-    "6":  {"theme_en": "Vegetables", "theme_ja": "やさい", "words": ["Tomato", "Potato", "Corn", "Cucumber", "Pumpkin", "Onion", "Broccoli", "Eggplant", "Cabbage", "Green pepper"]},
-    "7":  {"theme_en": "Body", "theme_ja": "からだ", "words": ["Head", "Hair", "Eye", "Ear", "Nose", "Mouth", "Teeth", "Hand", "Tummy", "Foot"]},
-    "8":  {"theme_en": "Fruits", "theme_ja": "くだもの", "words": ["Orange", "Grapes", "Peach", "Cherry", "Watermelon", "Lemon", "Pineapple", "Melon", "Kiwi", "Pear"]},
-    "9":  {"theme_en": "Snacks", "theme_ja": "おやつ", "words": ["Ice cream", "Cake", "Candy", "Donut", "Pizza", "Hamburger", "Sandwich", "Popcorn", "Pancake", "Chocolate"]},
-    "10": {"theme_en": "Clothes", "theme_ja": "ふく", "words": ["Hat", "Dress", "Shirt", "Gloves", "Pants", "Coat", "Socks", "Shoes", "Scarf", "Boots"]},
-    "11": {"theme_en": "Bugs", "theme_ja": "むし", "words": ["Butterfly", "Bee", "Ant", "Ladybug", "Dragonfly", "Snail", "Spider", "Caterpillar", "Beetle", "Grasshopper"]},
-    "12": {"theme_en": "Home", "theme_ja": "おうち", "words": ["Door", "Window", "Table", "Chair", "Bed", "Cup", "Spoon", "Clock", "Lamp", "Towel"]},
-    "13": {"theme_en": "Nature", "theme_ja": "しぜん", "words": ["Sun", "Moon", "Star", "Cloud", "Rain", "Snow", "Wind", "Tree", "Flower", "Mountain"]},
-    "14": {"theme_en": "Colors", "theme_ja": "いろ", "words": ["Red", "Blue", "Yellow", "Green", "Pink", "Purple", "White", "Black", "Brown", "Gray"]},
-    "15": {"theme_en": "Actions", "theme_ja": "うごき", "words": ["Walk", "Run", "Jump", "Wave", "Swim", "Clap", "Dance", "Sleep", "Sit", "Eat"]},
-    "16": {"theme_en": "Park", "theme_ja": "こうえん", "words": ["Slide", "Swing", "Seesaw", "Bench", "Sandbox", "Bucket", "Shovel", "Pond", "Duck", "Squirrel"]},
-    "17": {"theme_en": "Work Vehicles", "theme_ja": "はたらくくるま", "words": ["Fire truck", "Ambulance", "Police car", "Bulldozer", "Crane", "Excavator", "Dump truck", "Tractor", "Garbage truck", "Forklift"]},
-    "18": {"theme_en": "Feelings", "theme_ja": "きもち", "words": ["Happy", "Sad", "Angry", "Sleepy", "Hungry", "Scared", "Surprised", "Shy", "Excited", "Proud"]},
-    "19": {"theme_en": "Instruments", "theme_ja": "がっき", "words": ["Piano", "Guitar", "Violin", "Flute", "Harp", "Xylophone", "Tambourine", "Maracas", "Cymbals", "Harmonica"]},
-    "20": {"theme_en": "Places", "theme_ja": "ばしょ", "words": ["School", "Hospital", "Library", "Zoo", "Beach", "Farm", "Station", "Airport", "Store", "Bakery"]}
+    "1": {
+      "theme_en": "Food",
+      "theme_ja": "たべもの",
+      "words": [
+        "Apple",
+        "Banana",
+        "Strawberry",
+        "Bread",
+        "Egg",
+        "Milk",
+        "Cheese",
+        "Rice",
+        "Carrot",
+        "Cookie"
+      ]
+    },
+    "2": {
+      "theme_en": "Animals",
+      "theme_ja": "どうぶつ",
+      "words": [
+        "Dog",
+        "Cat",
+        "Bird",
+        "Rabbit",
+        "Pig",
+        "Cow",
+        "Monkey",
+        "Lion",
+        "Elephant",
+        "Turtle"
+      ]
+    },
+    "3": {
+      "theme_en": "Vehicles",
+      "theme_ja": "のりもの",
+      "words": [
+        "Car",
+        "Bus",
+        "Train",
+        "Plane",
+        "Ship",
+        "Bike",
+        "Truck",
+        "Taxi",
+        "Helicopter",
+        "Rocket"
+      ]
+    },
+    "4": {
+      "theme_en": "Sea Animals",
+      "theme_ja": "うみのいきもの",
+      "words": [
+        "Fish",
+        "Whale",
+        "Dolphin",
+        "Octopus",
+        "Crab",
+        "Shark",
+        "Jellyfish",
+        "Starfish",
+        "Seal",
+        "Penguin"
+      ]
+    },
+    "5": {
+      "theme_en": "Toys",
+      "theme_ja": "おもちゃ",
+      "words": [
+        "Ball",
+        "Doll",
+        "Block",
+        "Teddy bear",
+        "Balloon",
+        "Trumpet",
+        "Drum",
+        "Puzzle",
+        "Robot",
+        "Crayon"
+      ]
+    },
+    "6": {
+      "theme_en": "Vegetables",
+      "theme_ja": "やさい",
+      "words": [
+        "Tomato",
+        "Potato",
+        "Corn",
+        "Cucumber",
+        "Pumpkin",
+        "Onion",
+        "Broccoli",
+        "Eggplant",
+        "Cabbage",
+        "Green pepper"
+      ]
+    },
+    "7": {
+      "theme_en": "Body",
+      "theme_ja": "からだ",
+      "words": [
+        "Head",
+        "Hair",
+        "Eye",
+        "Ear",
+        "Nose",
+        "Mouth",
+        "Teeth",
+        "Hand",
+        "Tummy",
+        "Foot"
+      ]
+    },
+    "8": {
+      "theme_en": "Fruits",
+      "theme_ja": "くだもの",
+      "words": [
+        "Orange",
+        "Grapes",
+        "Peach",
+        "Cherry",
+        "Watermelon",
+        "Lemon",
+        "Pineapple",
+        "Melon",
+        "Kiwi",
+        "Pear"
+      ]
+    },
+    "9": {
+      "theme_en": "Snacks",
+      "theme_ja": "おやつ",
+      "words": [
+        "Ice cream",
+        "Cake",
+        "Candy",
+        "Donut",
+        "Pizza",
+        "Hamburger",
+        "Sandwich",
+        "Popcorn",
+        "Pancake",
+        "Chocolate"
+      ]
+    },
+    "10": {
+      "theme_en": "Clothes",
+      "theme_ja": "ふく",
+      "words": [
+        "Hat",
+        "Dress",
+        "Shirt",
+        "Gloves",
+        "Pants",
+        "Coat",
+        "Socks",
+        "Shoes",
+        "Scarf",
+        "Boots"
+      ]
+    },
+    "11": {
+      "theme_en": "Bugs",
+      "theme_ja": "むし",
+      "words": [
+        "Butterfly",
+        "Bee",
+        "Ant",
+        "Ladybug",
+        "Dragonfly",
+        "Snail",
+        "Spider",
+        "Caterpillar",
+        "Beetle",
+        "Grasshopper"
+      ]
+    },
+    "12": {
+      "theme_en": "Home",
+      "theme_ja": "おうち",
+      "words": [
+        "Door",
+        "Window",
+        "Table",
+        "Chair",
+        "Bed",
+        "Cup",
+        "Spoon",
+        "Clock",
+        "Lamp",
+        "Towel"
+      ]
+    },
+    "13": {
+      "theme_en": "Nature",
+      "theme_ja": "しぜん",
+      "words": [
+        "Sun",
+        "Moon",
+        "Star",
+        "Cloud",
+        "Rain",
+        "Snow",
+        "Wind",
+        "Tree",
+        "Flower",
+        "Mountain"
+      ]
+    },
+    "14": {
+      "theme_en": "Colors",
+      "theme_ja": "いろ",
+      "words": [
+        "Red",
+        "Blue",
+        "Yellow",
+        "Green",
+        "Pink",
+        "Purple",
+        "White",
+        "Black",
+        "Brown",
+        "Gray"
+      ]
+    },
+    "15": {
+      "theme_en": "Actions",
+      "theme_ja": "うごき",
+      "words": [
+        "Walk",
+        "Run",
+        "Jump",
+        "Wave",
+        "Swim",
+        "Clap",
+        "Dance",
+        "Sleep",
+        "Sit",
+        "Eat"
+      ]
+    },
+    "16": {
+      "theme_en": "Park",
+      "theme_ja": "こうえん",
+      "words": [
+        "Slide",
+        "Swing",
+        "Seesaw",
+        "Bench",
+        "Sandbox",
+        "Bucket",
+        "Shovel",
+        "Pond",
+        "Duck",
+        "Squirrel"
+      ]
+    },
+    "17": {
+      "theme_en": "Work Vehicles",
+      "theme_ja": "はたらくくるま",
+      "words": [
+        "Fire truck",
+        "Ambulance",
+        "Police car",
+        "Bulldozer",
+        "Crane",
+        "Excavator",
+        "Dump truck",
+        "Tractor",
+        "Garbage truck",
+        "Forklift"
+      ]
+    },
+    "18": {
+      "theme_en": "Feelings",
+      "theme_ja": "きもち",
+      "words": [
+        "Happy",
+        "Sad",
+        "Angry",
+        "Sleepy",
+        "Hungry",
+        "Scared",
+        "Surprised",
+        "Shy",
+        "Excited",
+        "Proud"
+      ]
+    },
+    "19": {
+      "theme_en": "Instruments",
+      "theme_ja": "がっき",
+      "words": [
+        "Piano",
+        "Guitar",
+        "Violin",
+        "Flute",
+        "Harp",
+        "Xylophone",
+        "Tambourine",
+        "Maracas",
+        "Cymbals",
+        "Harmonica"
+      ]
+    },
+    "20": {
+      "theme_en": "Places",
+      "theme_ja": "ばしょ",
+      "words": [
+        "School",
+        "Hospital",
+        "Library",
+        "Zoo",
+        "Beach",
+        "Farm",
+        "Station",
+        "Airport",
+        "Store",
+        "Bakery"
+      ]
+    }
   },
-  "also_avoid": ["Park", "Playground", "Garden", "Milk", "Egg", "Rice", "Water", "Juice"]
+  "also_avoid": [
+    "Park",
+    "Playground",
+    "Garden",
+    "Milk",
+    "Egg",
+    "Rice",
+    "Water",
+    "Juice"
+  ]
 }

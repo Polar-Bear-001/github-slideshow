@@ -1,26 +1,26 @@
 #!/usr/bin/env python3
-"""投稿用キャプション（YouTube ショート・TikTok・Instagram 共通）を episode.json から作る。第21回の形。
+"""投稿用キャプションを episode.json から作る。第1〜20回のキャプション（「きもち」「はたらくくるま」の回など）と同じ形。
   python3 caption.py <episode.json>        -> 標準出力と、同じフォルダの epNN_caption.txt
-episode.json に任意で:
-  "caption_emoji": ["🍳", "🥄"]   … 1つ目はタイトル行、2つ目は「きょうの10語」の行（無ければ 🎈 / 📚）
-  "caption_lead": "台所にあるもの"  … 「ぽんとなかまたちと、○○を英語で言ってみよう！」の○○（無ければ「<テーマ日本語>のことば」）
+形は固定（文言・絵文字・ハッシュタグを変えるときは、ここだけを直す）。テーマ名は theme_ja、単語は「英語 和訳」。
 """
 import json, os, sys
 
-TAGS = '#ぽんの英単語 #幼児英語 #おうち英語 #こども英語 #英単語 #知育 #2歳 #3歳 #4歳 #5歳 #kidsenglish #englishforkids #learnenglish'
+TEMPLATE = """🍎1ぷんで「{theme_ja}」のえいご10こ！
+ぞうの ぽん といっしょに おぼえよう🐘
+
+{words}
+
+🎶おなじことばを「ふつう」と「ゆっくり」の2かい きかせるよ。さいごの「おさらい」で、おやこでいっしょに いってみてね🎶
+
+📌 つぎのテーマも おたのしみに！ フォローして まっててね
+
+#幼児英語 #おうち英語 #英語あそび #知育動画 #こども英語
+"""
 
 
 def make(ep):
-    em = ep.get('caption_emoji') or ['🎈', '📚']
-    lead = ep.get('caption_lead') or '「%s」のことば' % ep['theme_ja']
-    lines = ['【ぽんの英単語 #%d】%s / %s %s' % (int(ep['episode']), ep['theme_ja'], ep['theme_en'].rstrip('!'), em[0]), '',
-             'ぽんとなかまたちと、%sを英語で言ってみよう！' % lead,
-             'ひとつの単語を「ふつう → ゆっくり」の2回ずつ言うよ。',
-             '最後はみんなでおさらい✨', '',
-             '%s きょうの10語' % (em[1] if len(em) > 1 else '📚')]
-    lines += ['%s（%s）' % (w['en'], w['ja']) for w in ep['words']]
-    lines += ['', 'いっしょに声に出して言えたかな？', "Let's practice! 👋", '', TAGS]
-    return '\n'.join(lines) + '\n'
+    words = '\n'.join('%s %s' % (w['en'], w['ja']) for w in ep['words'])
+    return TEMPLATE.format(theme_ja=ep['theme_ja'], words=words)
 
 
 if __name__ == '__main__':

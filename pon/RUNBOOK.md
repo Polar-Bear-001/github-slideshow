@@ -97,8 +97,8 @@
    HTTP 200 を確かめてから `media_confirm`（type `video`）。
 3. `attach_project_asset`（source `{type: "video_input", id: <media_id>}`、folder は `state.json` の `folder_id`）で2本ともプロジェクトに入れる。
 4. media_id と URL を `epNN.json` の `deliverables` に書く。`status` を `"done"`（目視で気になる点が残れば `"done_with_notes"`）。
-5. **キャプション**：テーマに合う絵文字2つと導入の一言を `epNN.json` に `"caption_emoji": ["🍳", "🥄"]`, `"caption_lead": "台所にあるもの"` のように書き（任意）、
-   `python3 $PL/caption.py $P/episodes/epNN.json` で `$P/episodes/epNN_caption.txt` を作る。中身は最後の返答にそのまま（コードブロックで）載せる。
+5. **キャプション**：`python3 $PL/caption.py $P/episodes/epNN.json` で `$P/episodes/epNN_caption.txt` を作る（第1〜20回と同じ固定の形。手で書き換えない）。
+   中身は最後の返答にそのまま（コードブロックで）載せる。
 
 ## 6. 記録・保存・終了
 
