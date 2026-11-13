@@ -110,8 +110,8 @@
      "media": ["<deliverables.v.url（縦の動画）>"], "mediaAltText": [], "providers": [{"network": "youtube"}],
      "publicationDate": {"dateTime": "<YYYY-MM-DDTHH:MM:SS>", "timezone": "Asia/Tokyo"}, "shortener": false, "smartLinkData": {"ids": []},
      "text": "<キャプション>",
-     "youtubeData": {"title": "🍎1ぷんで「<theme_ja>」のえいご10こ！ぞうのぽんと英単語 #shorts", "type": "short", "privacy": "<youtube.privacy>",
-       "tags": ["幼児英語", "おうち英語", "英語あそび", "知育動画", "こども英語", "ぽんの英単語"], "category": "EDUCATION", "madeForKids": true, "isAiGeneratedContent": false}}`
+     "youtubeData": {"title": "「<theme_ja>」のえいご10こ！", "type": "short", "privacy": "<youtube.privacy>",
+       "tags": ["幼児英語", "おうち英語", "英語あそび", "知育動画", "こども英語"], "category": "EDUCATION", "madeForKids": true, "isAiGeneratedContent": false}}`
 3. 返ってきた `id` と `plannerUrl` を `epNN.json` の `youtube` に書く。1回だけ送る（失敗したら原因を報告に書き、同じ回を二重に予約しない。`getScheduledPosts` で予約済みか確かめてから再送する）。
 4. 横長の動画は投稿しない（YouTube ショートは縦だけ）。
 
