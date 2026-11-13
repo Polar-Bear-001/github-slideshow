@@ -100,6 +100,21 @@
 5. **キャプション**：`python3 $PL/caption.py $P/episodes/epNN.json` で `$P/episodes/epNN_caption.txt` を作る（第1〜20回と同じ固定の形。手で書き換えない）。
    中身は最後の返答にそのまま（コードブロックで）載せる。
 
+## 5.5 YouTube ショートへの投稿（Metricool）
+
+`state.json` の `youtube.enabled` が true のときだけ行う（false なら飛ばす）。Metricool コネクタ（`mcp__Metricool_Social_Media_Management__*`）を使う。見えなければ ToolSearch で「Metricool createScheduledPost」を読み込む。使えなければ投稿だけ飛ばして、報告に書く。
+
+1. 予約時刻：`youtube.post_time` が `"next_slot"` なら今から15分後（日本時間）、`"HH:MM"` なら今日のその時刻（過ぎていれば15分後）。
+2. `createScheduledPost`（`blogId` = `youtube.metricool_blog_id`、`date` = 予約時刻 `+09:00`）。`info` は次の形（`text` は `epNN_caption.txt` の中身そのまま）:
+   `{"autoPublish": true, "descendants": [], "draft": false, "firstCommentText": "", "hasNotReadNotes": false,
+     "media": ["<deliverables.v.url（縦の動画）>"], "mediaAltText": [], "providers": [{"network": "youtube"}],
+     "publicationDate": {"dateTime": "<YYYY-MM-DDTHH:MM:SS>", "timezone": "Asia/Tokyo"}, "shortener": false, "smartLinkData": {"ids": []},
+     "text": "<キャプション>",
+     "youtubeData": {"title": "🍎1ぷんで「<theme_ja>」のえいご10こ！ぞうのぽんと英単語 #shorts", "type": "short", "privacy": "<youtube.privacy>",
+       "tags": ["幼児英語", "おうち英語", "英語あそび", "知育動画", "こども英語", "ぽんの英単語"], "category": "EDUCATION", "madeForKids": true, "isAiGeneratedContent": false}}`
+3. 返ってきた `id` と `plannerUrl` を `epNN.json` の `youtube` に書く。1回だけ送る（失敗したら原因を報告に書き、同じ回を二重に予約しない。`getScheduledPosts` で予約済みか確かめてから再送する）。
+4. 横長の動画は投稿しない（YouTube ショートは縦だけ）。
+
 ## 6. 記録・保存・終了
 
 1. `used_words.json` の `episodes` に N（theme_en, theme_ja, words）を足す。`theme_ideas.md` の使ったテーマに「第N回」と書く。
@@ -108,7 +123,7 @@
 4. **保存**：`cd /home/user/pon-repo && tar czf /home/user/pon_state.tgz pon` → `media_upload`（`filename: "pon_state_epNN.tgz"`, `source_type: "file_input"`）
    → サンドボックスで `curl -f -X PUT -H 'Content-Type: application/gzip' -H 'If-None-Match: *' --upload-file /home/user/pon_state.tgz '<url>'`
    → `media_confirm`（type `file`, source_type `file_input`）→ `attach_project_asset`（source `{type: "file_input", id}`、同じフォルダ）。
-5. 最後の返答に、テーマ・10語・使ったクレジット・残高・納品先（プロジェクト名と動画の URL）・目視で気になった点を短く書き、
+5. 最後の返答に、テーマ・10語・使ったクレジット・残高・納品先（プロジェクト名と動画の URL）・YouTube の予約（時刻・公開設定・plannerUrl、または飛ばした理由）・目視で気になった点を短く書き、
    そのあとに投稿用キャプション（`epNN_caption.txt` の中身）をコピーしやすいようにコードブロックで載せる。
 
 ## 止める条件（作らずに/途中で止めて報告する）

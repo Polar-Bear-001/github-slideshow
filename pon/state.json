@@ -21,5 +21,14 @@
     "assets_md5": "78e4e145f840c742f5fcfade7d99395e",
     "_note": "fonts/ (3) + ref/ep11_v.mp4, ep11_l.mp4, ref11.wav. /home/user で tar xzf する。",
     "pipeline_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L8YlIoEYhXdySR9OTlopevQUK6/b5f7e374-fece-4030-a482-15eac4cae196.tgz"
+  },
+  "youtube": {
+    "enabled": false,
+    "metricool_blog_id": "8081893",
+    "privacy": "unlisted",
+    "post_time": "next_slot",
+    "made_for_kids": true,
+    "category": "EDUCATION",
+    "_note": "enabled=true のときだけ Metricool で YouTube ショートに投稿する。privacy: public/unlisted/private。post_time: \"next_slot\"=完成からおよそ15分後（または指定の \"HH:MM\"）。"
   }
 }
