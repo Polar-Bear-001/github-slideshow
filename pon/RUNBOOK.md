@@ -105,7 +105,7 @@
 `state.json` の `youtube.enabled` が true のときだけ行う（false なら飛ばす）。Metricool コネクタ（`mcp__Metricool_Social_Media_Management__*`）を使う。見えなければ ToolSearch で「Metricool createScheduledPost」を読み込む。使えなければ投稿だけ飛ばして、報告に書く。
 
 1. 予約時刻：`youtube.post_time` が `"queue"` なら、`youtube_queue.json` の `queue` の最後の `when` の**次の枠**（`youtube.slots` = 07:30 と 17:00、日本時間。07:30 の次は同じ日の 17:00、17:00 の次は翌日 07:30）。その枠が今から30分以内か過去なら、さらに次の枠にずらす。`"next_slot"` なら今から15分後、`"HH:MM"` なら今日のその時刻。
-   - キューの前の回（第2〜20回など）の `metricool_id` が null のまま残っていたら、先にそれらを順番どおり予約する（`video_ready` が false なら、サンドボックスの `/home/user/epNN/epNN_v.mp4` を media_upload → curl PUT → media_confirm してから。URL は `video` の値と同じ ID になる）。
+   - キューの前の回（第2〜20回など）の `metricool_id` が null のまま残っていたら、先にそれらを予約する（`when` がまだ先ならその時刻、過ぎていれば次の空き枠に。`video_ready` が false なら、サンドボックスの `/home/user/epNN/epNN_v.mp4` を media_upload → curl PUT → media_confirm してから。URL は `video` の値と同じ ID になる）。
 2. `createScheduledPost`（`blogId` = `youtube.metricool_blog_id`、`date` = 予約時刻 `+09:00`）。`info` は次の形（`text` は `epNN_caption.txt` の中身そのまま）:
    `{"autoPublish": true, "descendants": [], "draft": false, "firstCommentText": "", "hasNotReadNotes": false,
      "media": ["<deliverables.v.url（縦の動画）>"], "mediaAltText": [], "providers": [{"network": "youtube"}],
