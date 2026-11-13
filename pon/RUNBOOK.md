@@ -104,7 +104,8 @@
 
 `state.json` の `youtube.enabled` が true のときだけ行う（false なら飛ばす）。Metricool コネクタ（`mcp__Metricool_Social_Media_Management__*`）を使う。見えなければ ToolSearch で「Metricool createScheduledPost」を読み込む。使えなければ投稿だけ飛ばして、報告に書く。
 
-1. 予約時刻：`youtube.post_time` が `"next_slot"` なら今から15分後（日本時間）、`"HH:MM"` なら今日のその時刻（過ぎていれば15分後）。
+1. 予約時刻：`youtube.post_time` が `"queue"` なら、`youtube_queue.json` の `queue` の最後の `when` の**次の枠**（`youtube.slots` = 07:30 と 17:00、日本時間。07:30 の次は同じ日の 17:00、17:00 の次は翌日 07:30）。その枠が今から30分以内か過去なら、さらに次の枠にずらす。`"next_slot"` なら今から15分後、`"HH:MM"` なら今日のその時刻。
+   - キューの前の回（第2〜20回など）の `metricool_id` が null のまま残っていたら、先にそれらを順番どおり予約する（`video_ready` が false なら、サンドボックスの `/home/user/epNN/epNN_v.mp4` を media_upload → curl PUT → media_confirm してから。URL は `video` の値と同じ ID になる）。
 2. `createScheduledPost`（`blogId` = `youtube.metricool_blog_id`、`date` = 予約時刻 `+09:00`）。`info` は次の形（`text` は `epNN_caption.txt` の中身そのまま）:
    `{"autoPublish": true, "descendants": [], "draft": false, "firstCommentText": "", "hasNotReadNotes": false,
      "media": ["<deliverables.v.url（縦の動画）>"], "mediaAltText": [], "providers": [{"network": "youtube"}],
@@ -112,7 +113,7 @@
      "text": "<キャプション>",
      "youtubeData": {"title": "「<theme_ja>」のえいご10こ！", "type": "short", "privacy": "<youtube.privacy>",
        "tags": ["幼児英語", "おうち英語", "英語あそび", "知育動画", "こども英語"], "category": "EDUCATION", "madeForKids": true, "isAiGeneratedContent": false}}`
-3. 返ってきた `id` と `plannerUrl` を `epNN.json` の `youtube` に書く。1回だけ送る（失敗したら原因を報告に書き、同じ回を二重に予約しない。`getScheduledPosts` で予約済みか確かめてから再送する）。
+3. 返ってきた `id` と `plannerUrl` を `epNN.json` の `youtube` に書き、`youtube_queue.json` の `queue` の末尾に `{episode, theme_ja, when, video, video_ready: true, title, text, metricool_id}` を足す（次の回の枠はここから決まる）。1回だけ送る（失敗したら原因を報告に書き、同じ回を二重に予約しない。`getScheduledPosts` で予約済みか確かめてから再送する）。
 4. 横長の動画は投稿しない（YouTube ショートは縦だけ）。
 
 ## 6. 記録・保存・終了

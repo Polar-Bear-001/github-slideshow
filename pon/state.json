@@ -23,12 +23,16 @@
     "pipeline_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L8YlIoEYhXdySR9OTlopevQUK6/b5f7e374-fece-4030-a482-15eac4cae196.tgz"
   },
   "youtube": {
-    "enabled": false,
+    "enabled": true,
     "metricool_blog_id": "8081893",
-    "privacy": "unlisted",
-    "post_time": "next_slot",
+    "privacy": "public",
+    "post_time": "queue",
     "made_for_kids": true,
     "category": "EDUCATION",
-    "_note": "enabled=true のときだけ Metricool で YouTube ショートに投稿する。privacy: public/unlisted/private。post_time: \"next_slot\"=完成からおよそ15分後（または指定の \"HH:MM\"）。"
+    "_note": "enabled=true のとき Metricool で YouTube ショートに投稿する。post_time=\"queue\": youtube_queue.json の最後の予約の次の枠（slots の 07:30 / 17:00、日本時間）に入れる。privacy: public/unlisted/private。",
+    "slots": [
+      "07:30",
+      "17:00"
+    ]
   }
 }

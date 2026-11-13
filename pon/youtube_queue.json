@@ -1,0 +1,195 @@
+{
+ "_comment": "YouTube ショートの投稿予定（第2〜20回）。Metricool に予約したら metricool_id を入れる。video_ready=false は Higgsfield へのアップロード待ち（サンドボックスの epNN/epNN_v.mp4）。",
+ "queue": [
+  {
+   "episode": 2,
+   "theme_ja": "どうぶつ",
+   "when": "2026-11-14T07:30:00",
+   "video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L8YlIoEYhXdySR9OTlopevQUK6/1d6e4fae-9376-4b33-b70b-40f4069c6e57.mp4",
+   "video_ready": true,
+   "title": "「どうぶつ」のえいご10こ！",
+   "text": "🍎1ぷんで「どうぶつ」のえいご10こ！\nぞうの ぽん といっしょに おぼえよう🐘\n\nDog いぬ\nCat ねこ\nBird とり\nRabbit うさぎ\nPig ぶた\nCow うし\nMonkey さる\nLion ライオン\nElephant ぞう\nTurtle かめ\n\n🎶おなじことばを「ふつう」と「ゆっくり」の2かい きかせるよ。さいごの「おさらい」で、おやこでいっしょに いってみてね🎶\n\n📌 つぎのテーマも おたのしみに！ フォローして まっててね\n\n#幼児英語 #おうち英語 #英語あそび #知育動画 #こども英語\n",
+   "metricool_id": null
+  },
+  {
+   "episode": 3,
+   "theme_ja": "のりもの",
+   "when": "2026-11-14T17:00:00",
+   "video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L8YlIoEYhXdySR9OTlopevQUK6/e0fe3fcf-af77-4a31-b5f5-1fb97b73ab0c.mp4",
+   "video_ready": true,
+   "title": "「のりもの」のえいご10こ！",
+   "text": "🍎1ぷんで「のりもの」のえいご10こ！\nぞうの ぽん といっしょに おぼえよう🐘\n\nCar くるま\nBus バス\nTrain でんしゃ\nPlane ひこうき\nShip ふね\nBike じてんしゃ\nTruck トラック\nTaxi タクシー\nHelicopter ヘリコプター\nRocket ロケット\n\n🎶おなじことばを「ふつう」と「ゆっくり」の2かい きかせるよ。さいごの「おさらい」で、おやこでいっしょに いってみてね🎶\n\n📌 つぎのテーマも おたのしみに！ フォローして まっててね\n\n#幼児英語 #おうち英語 #英語あそび #知育動画 #こども英語\n",
+   "metricool_id": null
+  },
+  {
+   "episode": 4,
+   "theme_ja": "うみのいきもの",
+   "when": "2026-11-15T07:30:00",
+   "video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L8YlIoEYhXdySR9OTlopevQUK6/a73f6c45-4630-455e-a6b8-c3b669956a1a.mp4",
+   "video_ready": true,
+   "title": "「うみのいきもの」のえいご10こ！",
+   "text": "🍎1ぷんで「うみのいきもの」のえいご10こ！\nぞうの ぽん といっしょに おぼえよう🐘\n\nFish さかな\nWhale くじら\nDolphin イルカ\nOctopus たこ\nCrab かに\nShark サメ\nJellyfish くらげ\nStarfish ひとで\nSeal アザラシ\nPenguin ペンギン\n\n🎶おなじことばを「ふつう」と「ゆっくり」の2かい きかせるよ。さいごの「おさらい」で、おやこでいっしょに いってみてね🎶\n\n📌 つぎのテーマも おたのしみに！ フォローして まっててね\n\n#幼児英語 #おうち英語 #英語あそび #知育動画 #こども英語\n",
+   "metricool_id": null
+  },
+  {
+   "episode": 5,
+   "theme_ja": "おもちゃ",
+   "when": "2026-11-15T17:00:00",
+   "video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L8YlIoEYhXdySR9OTlopevQUK6/ea4d79b5-3c4b-4e4f-9dd9-7b489bf63c0b.mp4",
+   "video_ready": true,
+   "title": "「おもちゃ」のえいご10こ！",
+   "text": "🍎1ぷんで「おもちゃ」のえいご10こ！\nぞうの ぽん といっしょに おぼえよう🐘\n\nBall ボール\nDoll にんぎょう\nBlock ブロック\nTeddy bear くまのぬいぐるみ\nBalloon ふうせん\nTrumpet ラッパ\nDrum たいこ\nPuzzle パズル\nRobot ロボット\nCrayon クレヨン\n\n🎶おなじことばを「ふつう」と「ゆっくり」の2かい きかせるよ。さいごの「おさらい」で、おやこでいっしょに いってみてね🎶\n\n📌 つぎのテーマも おたのしみに！ フォローして まっててね\n\n#幼児英語 #おうち英語 #英語あそび #知育動画 #こども英語\n",
+   "metricool_id": null
+  },
+  {
+   "episode": 6,
+   "theme_ja": "やさい",
+   "when": "2026-11-16T07:30:00",
+   "video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L8YlIoEYhXdySR9OTlopevQUK6/1d40e09b-2885-4b3a-aaab-382ef9368684.mp4",
+   "video_ready": true,
+   "title": "「やさい」のえいご10こ！",
+   "text": "🍎1ぷんで「やさい」のえいご10こ！\nぞうの ぽん といっしょに おぼえよう🐘\n\nTomato トマト\nPotato じゃがいも\nCorn とうもろこし\nCucumber きゅうり\nPumpkin かぼちゃ\nOnion たまねぎ\nBroccoli ブロッコリー\nEggplant なす\nCabbage キャベツ\nGreen pepper ピーマン\n\n🎶おなじことばを「ふつう」と「ゆっくり」の2かい きかせるよ。さいごの「おさらい」で、おやこでいっしょに いってみてね🎶\n\n📌 つぎのテーマも おたのしみに！ フォローして まっててね\n\n#幼児英語 #おうち英語 #英語あそび #知育動画 #こども英語\n",
+   "metricool_id": null
+  },
+  {
+   "episode": 7,
+   "theme_ja": "からだ",
+   "when": "2026-11-16T17:00:00",
+   "video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L8YlIoEYhXdySR9OTlopevQUK6/d86711a3-c101-479b-a5b7-9835a4f58e57.mp4",
+   "video_ready": true,
+   "title": "「からだ」のえいご10こ！",
+   "text": "🍎1ぷんで「からだ」のえいご10こ！\nぞうの ぽん といっしょに おぼえよう🐘\n\nHead あたま\nHair かみのけ\nEye め\nEar みみ\nNose はな\nMouth くち\nTeeth は\nHand て\nTummy おなか\nFoot あし\n\n🎶おなじことばを「ふつう」と「ゆっくり」の2かい きかせるよ。さいごの「おさらい」で、おやこでいっしょに いってみてね🎶\n\n📌 つぎのテーマも おたのしみに！ フォローして まっててね\n\n#幼児英語 #おうち英語 #英語あそび #知育動画 #こども英語\n",
+   "metricool_id": null
+  },
+  {
+   "episode": 8,
+   "theme_ja": "くだもの",
+   "when": "2026-11-17T07:30:00",
+   "video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L8YlIoEYhXdySR9OTlopevQUK6/f7528e59-e1ad-450c-8942-4f2ea1a0db29.mp4",
+   "video_ready": true,
+   "title": "「くだもの」のえいご10こ！",
+   "text": "🍎1ぷんで「くだもの」のえいご10こ！\nぞうの ぽん といっしょに おぼえよう🐘\n\nOrange オレンジ\nGrapes ぶどう\nPeach もも\nCherry さくらんぼ\nWatermelon すいか\nLemon レモン\nPineapple パイナップル\nMelon メロン\nKiwi キウイ\nPear なし\n\n🎶おなじことばを「ふつう」と「ゆっくり」の2かい きかせるよ。さいごの「おさらい」で、おやこでいっしょに いってみてね🎶\n\n📌 つぎのテーマも おたのしみに！ フォローして まっててね\n\n#幼児英語 #おうち英語 #英語あそび #知育動画 #こども英語\n",
+   "metricool_id": null
+  },
+  {
+   "episode": 9,
+   "theme_ja": "おやつ",
+   "when": "2026-11-17T17:00:00",
+   "video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L8YlIoEYhXdySR9OTlopevQUK6/7ecae059-49ea-4b76-93b7-498ccece69df.mp4",
+   "video_ready": true,
+   "title": "「おやつ」のえいご10こ！",
+   "text": "🍎1ぷんで「おやつ」のえいご10こ！\nぞうの ぽん といっしょに おぼえよう🐘\n\nIce cream アイスクリーム\nCake ケーキ\nCandy あめ\nDonut ドーナツ\nPizza ピザ\nHamburger ハンバーガー\nSandwich サンドイッチ\nPopcorn ポップコーン\nPancake ホットケーキ\nChocolate チョコレート\n\n🎶おなじことばを「ふつう」と「ゆっくり」の2かい きかせるよ。さいごの「おさらい」で、おやこでいっしょに いってみてね🎶\n\n📌 つぎのテーマも おたのしみに！ フォローして まっててね\n\n#幼児英語 #おうち英語 #英語あそび #知育動画 #こども英語\n",
+   "metricool_id": null
+  },
+  {
+   "episode": 10,
+   "theme_ja": "ふく",
+   "when": "2026-11-18T07:30:00",
+   "video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L8YlIoEYhXdySR9OTlopevQUK6/89b25728-c154-4831-8285-9dc9f186e600.mp4",
+   "video_ready": true,
+   "title": "「ふく」のえいご10こ！",
+   "text": "🍎1ぷんで「ふく」のえいご10こ！\nぞうの ぽん といっしょに おぼえよう🐘\n\nHat ぼうし\nDress ワンピース\nShirt シャツ\nGloves てぶくろ\nPants ズボン\nCoat コート\nSocks くつした\nShoes くつ\nScarf マフラー\nBoots ながぐつ\n\n🎶おなじことばを「ふつう」と「ゆっくり」の2かい きかせるよ。さいごの「おさらい」で、おやこでいっしょに いってみてね🎶\n\n📌 つぎのテーマも おたのしみに！ フォローして まっててね\n\n#幼児英語 #おうち英語 #英語あそび #知育動画 #こども英語\n",
+   "metricool_id": null
+  },
+  {
+   "episode": 11,
+   "theme_ja": "むし",
+   "when": "2026-11-18T17:00:00",
+   "video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L8YlIoEYhXdySR9OTlopevQUK6/1d78635d-99f2-497c-95f4-16a8d8f7385a.mp4",
+   "video_ready": true,
+   "title": "「むし」のえいご10こ！",
+   "text": "🍎1ぷんで「むし」のえいご10こ！\nぞうの ぽん といっしょに おぼえよう🐘\n\nButterfly ちょうちょ\nBee はち\nAnt あり\nLadybug てんとうむし\nDragonfly とんぼ\nSnail かたつむり\nSpider くも\nCaterpillar いもむし\nBeetle カブトムシ\nGrasshopper バッタ\n\n🎶おなじことばを「ふつう」と「ゆっくり」の2かい きかせるよ。さいごの「おさらい」で、おやこでいっしょに いってみてね🎶\n\n📌 つぎのテーマも おたのしみに！ フォローして まっててね\n\n#幼児英語 #おうち英語 #英語あそび #知育動画 #こども英語\n",
+   "metricool_id": null
+  },
+  {
+   "episode": 12,
+   "theme_ja": "おうち",
+   "when": "2026-11-19T07:30:00",
+   "video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L8YlIoEYhXdySR9OTlopevQUK6/5bfa21c9-3e69-4ee0-851d-0c897db58691.mp4",
+   "video_ready": false,
+   "title": "「おうち」のえいご10こ！",
+   "text": "🍎1ぷんで「おうち」のえいご10こ！\nぞうの ぽん といっしょに おぼえよう🐘\n\nDoor ドア\nWindow まど\nTable テーブル\nChair いす\nBed ベッド\nCup コップ\nSpoon スプーン\nClock とけい\nLamp ランプ\nTowel タオル\n\n🎶おなじことばを「ふつう」と「ゆっくり」の2かい きかせるよ。さいごの「おさらい」で、おやこでいっしょに いってみてね🎶\n\n📌 つぎのテーマも おたのしみに！ フォローして まっててね\n\n#幼児英語 #おうち英語 #英語あそび #知育動画 #こども英語\n",
+   "metricool_id": null
+  },
+  {
+   "episode": 13,
+   "theme_ja": "しぜん",
+   "when": "2026-11-19T17:00:00",
+   "video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L8YlIoEYhXdySR9OTlopevQUK6/e4f0ed2b-f0ea-48a9-a4ee-353f6be377e1.mp4",
+   "video_ready": false,
+   "title": "「しぜん」のえいご10こ！",
+   "text": "🍎1ぷんで「しぜん」のえいご10こ！\nぞうの ぽん といっしょに おぼえよう🐘\n\nSun たいよう\nMoon つき\nStar ほし\nCloud くも\nRain あめ\nSnow ゆき\nWind かぜ\nTree き\nFlower はな\nMountain やま\n\n🎶おなじことばを「ふつう」と「ゆっくり」の2かい きかせるよ。さいごの「おさらい」で、おやこでいっしょに いってみてね🎶\n\n📌 つぎのテーマも おたのしみに！ フォローして まっててね\n\n#幼児英語 #おうち英語 #英語あそび #知育動画 #こども英語\n",
+   "metricool_id": null
+  },
+  {
+   "episode": 14,
+   "theme_ja": "いろ",
+   "when": "2026-11-20T07:30:00",
+   "video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L8YlIoEYhXdySR9OTlopevQUK6/bd27338e-afac-4a31-9584-3e77af694850.mp4",
+   "video_ready": false,
+   "title": "「いろ」のえいご10こ！",
+   "text": "🍎1ぷんで「いろ」のえいご10こ！\nぞうの ぽん といっしょに おぼえよう🐘\n\nRed あか\nBlue あお\nYellow きいろ\nGreen みどり\nPink ピンク\nPurple むらさき\nWhite しろ\nBlack くろ\nBrown ちゃいろ\nGray はいいろ\n\n🎶おなじことばを「ふつう」と「ゆっくり」の2かい きかせるよ。さいごの「おさらい」で、おやこでいっしょに いってみてね🎶\n\n📌 つぎのテーマも おたのしみに！ フォローして まっててね\n\n#幼児英語 #おうち英語 #英語あそび #知育動画 #こども英語\n",
+   "metricool_id": null
+  },
+  {
+   "episode": 15,
+   "theme_ja": "うごき",
+   "when": "2026-11-20T17:00:00",
+   "video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L8YlIoEYhXdySR9OTlopevQUK6/ecbbec9e-8b12-4591-a861-710d84f58021.mp4",
+   "video_ready": false,
+   "title": "「うごき」のえいご10こ！",
+   "text": "🍎1ぷんで「うごき」のえいご10こ！\nぞうの ぽん といっしょに おぼえよう🐘\n\nWalk あるく\nRun はしる\nJump とぶ\nWave てをふる\nSwim およぐ\nClap てをたたく\nDance おどる\nSleep ねる\nSit すわる\nEat たべる\n\n🎶おなじことばを「ふつう」と「ゆっくり」の2かい きかせるよ。さいごの「おさらい」で、おやこでいっしょに いってみてね🎶\n\n📌 つぎのテーマも おたのしみに！ フォローして まっててね\n\n#幼児英語 #おうち英語 #英語あそび #知育動画 #こども英語\n",
+   "metricool_id": null
+  },
+  {
+   "episode": 16,
+   "theme_ja": "こうえん",
+   "when": "2026-11-21T07:30:00",
+   "video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L8YlIoEYhXdySR9OTlopevQUK6/b212adab-66f8-43f2-9867-96cdd461913a.mp4",
+   "video_ready": false,
+   "title": "「こうえん」のえいご10こ！",
+   "text": "🍎1ぷんで「こうえん」のえいご10こ！\nぞうの ぽん といっしょに おぼえよう🐘\n\nSlide すべりだい\nSwing ブランコ\nSeesaw シーソー\nBench ベンチ\nSandbox すなば\nBucket バケツ\nShovel スコップ\nPond いけ\nDuck あひる\nSquirrel りす\n\n🎶おなじことばを「ふつう」と「ゆっくり」の2かい きかせるよ。さいごの「おさらい」で、おやこでいっしょに いってみてね🎶\n\n📌 つぎのテーマも おたのしみに！ フォローして まっててね\n\n#幼児英語 #おうち英語 #英語あそび #知育動画 #こども英語\n",
+   "metricool_id": null
+  },
+  {
+   "episode": 17,
+   "theme_ja": "はたらくくるま",
+   "when": "2026-11-21T17:00:00",
+   "video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L8YlIoEYhXdySR9OTlopevQUK6/2e68bc5b-5a15-43bc-bf7e-1f43c82b469d.mp4",
+   "video_ready": false,
+   "title": "「はたらくくるま」のえいご10こ！",
+   "text": "🍎1ぷんで「はたらくくるま」のえいご10こ！\nぞうの ぽん といっしょに おぼえよう🐘\n\nFire truck しょうぼうしゃ\nAmbulance きゅうきゅうしゃ\nPolice car パトカー\nBulldozer ブルドーザー\nCrane クレーン\nExcavator ショベルカー\nDump truck ダンプカー\nTractor トラクター\nGarbage truck ごみしゅうしゅうしゃ\nForklift フォークリフト\n\n🎶おなじことばを「ふつう」と「ゆっくり」の2かい きかせるよ。さいごの「おさらい」で、おやこでいっしょに いってみてね🎶\n\n📌 つぎのテーマも おたのしみに！ フォローして まっててね\n\n#幼児英語 #おうち英語 #英語あそび #知育動画 #こども英語\n",
+   "metricool_id": null
+  },
+  {
+   "episode": 18,
+   "theme_ja": "きもち",
+   "when": "2026-11-22T07:30:00",
+   "video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L8YlIoEYhXdySR9OTlopevQUK6/0fece8a3-884c-4edd-97ea-eba6df30defd.mp4",
+   "video_ready": false,
+   "title": "「きもち」のえいご10こ！",
+   "text": "🍎1ぷんで「きもち」のえいご10こ！\nぞうの ぽん といっしょに おぼえよう🐘\n\nHappy うれしい\nSad かなしい\nAngry おこっている\nSleepy ねむい\nHungry おなかがすいた\nScared こわい\nSurprised びっくり\nShy はずかしい\nExcited わくわく\nProud ほこらしい\n\n🎶おなじことばを「ふつう」と「ゆっくり」の2かい きかせるよ。さいごの「おさらい」で、おやこでいっしょに いってみてね🎶\n\n📌 つぎのテーマも おたのしみに！ フォローして まっててね\n\n#幼児英語 #おうち英語 #英語あそび #知育動画 #こども英語\n",
+   "metricool_id": null
+  },
+  {
+   "episode": 19,
+   "theme_ja": "がっき",
+   "when": "2026-11-22T17:00:00",
+   "video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L8YlIoEYhXdySR9OTlopevQUK6/f188a854-ca91-467e-bfbf-21b8c64d01ea.mp4",
+   "video_ready": false,
+   "title": "「がっき」のえいご10こ！",
+   "text": "🍎1ぷんで「がっき」のえいご10こ！\nぞうの ぽん といっしょに おぼえよう🐘\n\nPiano ピアノ\nGuitar ギター\nViolin バイオリン\nFlute フルート\nHarp ハープ\nXylophone もっきん\nTambourine タンバリン\nMaracas マラカス\nCymbals シンバル\nHarmonica ハーモニカ\n\n🎶おなじことばを「ふつう」と「ゆっくり」の2かい きかせるよ。さいごの「おさらい」で、おやこでいっしょに いってみてね🎶\n\n📌 つぎのテーマも おたのしみに！ フォローして まっててね\n\n#幼児英語 #おうち英語 #英語あそび #知育動画 #こども英語\n",
+   "metricool_id": null
+  },
+  {
+   "episode": 20,
+   "theme_ja": "ばしょ",
+   "when": "2026-11-23T07:30:00",
+   "video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L8YlIoEYhXdySR9OTlopevQUK6/560fe0cd-2138-423d-a8c0-de43d35921e1.mp4",
+   "video_ready": false,
+   "title": "「ばしょ」のえいご10こ！",
+   "text": "🍎1ぷんで「ばしょ」のえいご10こ！\nぞうの ぽん といっしょに おぼえよう🐘\n\nSchool がっこう\nHospital びょういん\nLibrary としょかん\nZoo どうぶつえん\nBeach ビーチ\nFarm のうじょう\nStation えき\nAirport くうこう\nStore おみせ\nBakery パンや\n\n🎶おなじことばを「ふつう」と「ゆっくり」の2かい きかせるよ。さいごの「おさらい」で、おやこでいっしょに いってみてね🎶\n\n📌 つぎのテーマも おたのしみに！ フォローして まっててね\n\n#幼児英語 #おうち英語 #英語あそび #知育動画 #こども英語\n",
+   "metricool_id": null
+  }
+ ]
+}
