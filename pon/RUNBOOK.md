@@ -112,7 +112,7 @@
      "publicationDate": {"dateTime": "<YYYY-MM-DDTHH:MM:SS>", "timezone": "Asia/Tokyo"}, "shortener": false, "smartLinkData": {"ids": []},
      "text": "<キャプション>",
      "youtubeData": {"title": "「<theme_ja>」のえいご10こ！", "type": "short", "privacy": "<youtube.privacy>",
-       "tags": ["幼児英語", "おうち英語", "英語あそび", "知育動画", "こども英語"], "category": "EDUCATION", "madeForKids": true, "isAiGeneratedContent": false}}`
+       "tags": ["幼児英語", "おうち英語", "英語あそび", "知育動画", "こども英語"], "category": "EDUCATION", "madeForKids": true, "isAiGeneratedContent": true}}`（AI生成の申告は常にオン）
 3. 返ってきた `id` と `plannerUrl` を `epNN.json` の `youtube` に書き、`youtube_queue.json` の `queue` の末尾に `{episode, theme_ja, when, video, video_ready: true, title, text, metricool_id}` を足す（次の回の枠はここから決まる）。1回だけ送る（失敗したら原因を報告に書き、同じ回を二重に予約しない。`getScheduledPosts` で予約済みか確かめてから再送する）。
 4. 横長の動画は投稿しない（YouTube ショートは縦だけ）。
 
