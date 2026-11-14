@@ -102,7 +102,9 @@
 
 ## 5.5 YouTube ショートへの投稿（Metricool）
 
-`state.json` の `youtube.enabled` が true のときだけ行う（false なら飛ばす）。Metricool コネクタ（`mcp__Metricool_Social_Media_Management__*`）を使う。見えなければ ToolSearch で「Metricool createScheduledPost」を読み込む。使えなければ投稿だけ飛ばして、報告に書く。
+`state.json` の `youtube.enabled` が true のときだけ行う（false なら飛ばす）。
+
+**決まった時刻の実行（スケジュールされたタスク）では予約しない**（`youtube.post_in_scheduled_run` が false のとき）。その場合は `youtube_queue.json` の末尾に `metricool_id: null`・`when: null` で回を足し（episode, theme_ja, video, video_ready, title, text, ai_label: true）、報告に「YouTube 未予約: 第N回」と書くだけにする。予約は、人が見ている対話セッションで「未予約の回を予約して」と頼まれたときに、null の回を番号順に、最後の予約の次の枠から入れる。Metricool コネクタ（`mcp__Metricool_Social_Media_Management__*`）を使う。見えなければ ToolSearch で「Metricool createScheduledPost」を読み込む。使えなければ投稿だけ飛ばして、報告に書く。
 
 1. 予約時刻：`youtube.post_time` が `"queue"` なら、`youtube_queue.json` の `queue` の最後の `when` の**次の枠**（`youtube.slots` = 07:30 と 17:00、日本時間。07:30 の次は同じ日の 17:00、17:00 の次は翌日 07:30）。その枠が今から30分以内か過去なら、さらに次の枠にずらす。`"next_slot"` なら今から15分後、`"HH:MM"` なら今日のその時刻。
    - キューの前の回（第2〜20回など）の `metricool_id` が null のまま残っていたら、先にそれらを予約する（`when` がまだ先ならその時刻、過ぎていれば次の空き枠に。`video_ready` が false なら、サンドボックスの `/home/user/epNN/epNN_v.mp4` を media_upload → curl PUT → media_confirm してから。URL は `video` の値と同じ ID になる）。

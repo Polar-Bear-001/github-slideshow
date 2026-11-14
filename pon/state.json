@@ -34,6 +34,7 @@
       "07:30",
       "17:00"
     ],
-    "ai_generated": true
+    "ai_generated": true,
+    "post_in_scheduled_run": false
   }
 }
