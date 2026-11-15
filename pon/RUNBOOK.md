@@ -19,6 +19,15 @@
 
 ---
 
+## 第22回で決まった作り方（ユーザー確認済み・この形を守る）
+
+- **単語の絵**：2コマ目は「同じ場面の次の瞬間」。モノとキャラの両方がはっきり動く（`obj_change`/`char_change`/`b_hero`/`b_scene`、見本は `episodes/ep22.json`）。
+  `images` は2コマ目を基本そのまま使い、地面の高さ・大きさがずれたときだけ自動で補正。A/B は0.5秒ごとに切り替え。
+- **導入動画**：`series.json` の `intro_video` の指示（第23回から：ぽんの全身をぬいぐるみのようにゆっくり左右に揺らし、塗りを「体に付いた布の柄」として一緒に動かす。前の指示は `intro_video_old_v1`）で Kling 3.0 Turbo を1回生成し、**出力をそのまま使う**。
+  `ponfix.py` / `ponwarp.py` などの後からの補正は**しない**（動画がガタガタになるため）。
+  塗りが体と一緒に動いていない・透けているときは、作り直さず納品して、報告と通知のいちばん最初で知らせる（直すかは人が決める）。
+- 完成版の見本：第22回 v7（縦 2a902382…, 横 e92ed090…）。
+
 ## 0. 始める前の確認（毎回）
 
 1. `sandbox_exec`：`ls /home/user/pon-repo/pon/state.json /home/user/fonts/Fredoka.ttf /home/user/ref/ep11_v.mp4` — どれかが無ければ最後の節「復元」を先に行う。
@@ -41,9 +50,19 @@
    - `hero`: 主役の物を英語で、形と色が分かるように（例 `The bakery (yellow walls, a brown roof with a chimney, …)`）。**文字・数字・看板は入れない**。過去の単語と同じ物は主役にしない。
    - `scene`: 担当キャラがその物のそばで何をしているか1文（例 `Ben stands in front smiling with both hands at the chest.`）。
      速く振る・振り回すなどの大きな動きは書かない。ホップの耳、マフィンの目としっぽの決まりは `prompts.py` が自動で足す。
-   - `changes`: 2コマ目の小さな違い（例 `both hands move slightly, …, and the two sparkles shift a little`）。物の位置や大きさは変えない。
+   - **2コマ目（第23回から）**：2コマ目は「同じ場面の次の瞬間」。モノとキャラの両方がはっきり動くように、次の4つを書く。
+     - `obj_change`：モノの動き（例 `the scissors are now open wide, the two round blunt blades apart in a big V shape, lying in the same spot`）。
+       開く・閉じる・傾く・引き出す・ふたが開く・湯気が出る など**形がはっきり変わる動き**にする。透明・細い物の小さな変化（テープの引き出しなど）は見えにくいので避ける。モノの大きさと置き場所は変えない。
+     - `char_change`：キャラのポーズの変化（例 `Muffin raises one paw high in a cheerful wave and tilts the head a little`）。立ち位置と大きさは変えず、ポーズだけ変える。速く振る・振り回すは書かない。
+     - `b_hero`：2コマ目のモノの説明（`hero` に `obj_change` の状態を入れたもの。例 `A big pair of child safety scissors …, opened wide in a V shape and lying flat on a wooden desk`）。
+     - `b_scene`：2コマ目のキャラの1文（例 `Muffin stands beside the open scissors raising one paw high in a cheerful wave, head tilted a little, smiling.`）。
+     - 書き方の見本は `episodes/ep22.json` の1・3・8語目（Pencil, Scissors, Tape）。Tape は透明で動きが見えにくかった悪い例。
+     - 動きはモノ1つ・キャラ1つまで。1コマ目の `scene` は「動きの始まり」のポーズとして、2コマ目と対で考える。
+     - （第22回までの `changes` は古い形。`prompts.py` は古い回も読めるが、新しい回は上の4つを書く）
    - `intro`: 導入の絵で手前のぽんが持つ/示す物（`front_scene`、「large Pon the gray-blue baby elephant stands smiling and …」で始める）、その物の名前（`prop`）、ぽんの動き（`front_motion`、とても小さい動き）、物が崩れない決まり（`prop_rule`）。`ep20.json` の地図の例にならう。
+     **第28回から（導入の絵をテーマの場面にする）**：さらに `setting`（背景の場面。丘にこだわらない。例：農場なら「左端に一部だけ見える赤い納屋（屋根は40%の線より下）、低い木の柵、干し草」。背の高い建物・木は端で切るか低く描くと書く）、`theme_items`（ぽんのまわりに描くテーマの物を3〜4個。10語の中から選ぶ）、`back_action`（奥の4人がテーマに参加する動き。例：うさぎがひよこを持つ）も書く。ぽんが持つ物（`front_scene` / `prop`）もテーマがひと目で分かる物にする（例：農場なら納屋のおもちゃより子ひつじを抱く）。上の40%は字幕のための空きで、空など、あっさりした背景だけにする（指示文に書いてある）。
    - 動物そのものなど、追加の解剖の決まりが要る語は `extra_anatomy` に書く（例 Zoo のキリン）。
+   - `caption_emoji`：テーマに合う絵文字を2つほど（例 Beach Day なら `["🏖️", "🐚"]`）。1つ目がキャプション冒頭の絵文字になる（第25回から。無いと 🍎）。
 3. `python3 $PL/prompts.py $P/episodes/epNN.json check` が `OK` になるまで直す。
 4. `state.json` の `in_progress` を N にする。`mkdir -p /home/user/epNN && cp $P/episodes/epNN.json /home/user/epNN/episode.json`。
 
@@ -76,12 +95,22 @@
    `sandbox_exec` の `image_paths` でこの3枚を**必ず目で見る**：
    - 耳の数（ぽん2・ホップ2・マフィン2）、ホップの耳が頭についている、マフィンのしっぽが1本で太く体についている、手足が2本ずつ、目が2つ
    - 絵の中に文字・数字・看板がない／主役の物が大きくはっきり／上の35%が空いている
-   - 1コマ目と2コマ目で物の形と位置が同じ（終了コード3＝大きくずれている語がある）
+   - 1コマ目と2コマ目で、同じ物・同じキャラに見える（色・形・持ち物が同じ）。動き（`obj_change`/`char_change`）がちゃんと描かれている。
+     `images` は2コマ目を基本そのまま使い、地面の線の高さ（3px以上）や大きさ（3%以上）がずれているときだけ自動で補正する（`register.json` に記録）。
+     終了コード3＝地面の線が見つからない／大きさが15%を超えてずれている語がある → その語の2コマ目を描き直す。
    - 導入：手前にぽん、奥に4人が小さく低く並ぶ。上のほうは空だけで、字幕に何も重ならない（2. の5番で確認済み）。
    問題のある語は、1コマ目なら stage `redo N` → `generate_image_batch`（その語の2コマ目も stage `b` の N 番目だけで作り直す）、2コマ目だけなら stage `b` の N 番目だけを送る。
    **描き直しは1話で合計6枚まで**。作り直したら `fetch.py` で取り込み直して `images` をやり直す。
 4. **導入動画**：`bash $PL/run.sh clip /home/user/epNN` と `chk/clip/*_sheet.jpg` の目視。
    崩れ疑い（終了コード1）で、目で見ても耳・しっぽ・顔が崩れていたら、1回だけ作り直す。2回目も崩れていたら、良い方を使い `notes` に書く。
+   **手前のぽんの塗りが体と一緒に動いているか**も必ず見る。Kling の動画は輪郭は動くのに中のクレヨンの塗りが画面に貼り付いたまま
+   （透けているように見える）になりやすい。`clip` の数値では見つからない。動画を再生して、ぽんの頭やおなかの模様が体と一緒に動くかを見る。
+   **貼り付いていても作り直さない・直さない**。そのまま組み立てと納品まで進め、`notes` と `LOG.md` に書いて `status` を `done_with_notes` にし、
+   最後の報告と通知の**いちばん最初**に「導入のぽんの塗りが動いていません（作り直していません）」と書く。直すかどうかは人が決める。
+   （人に頼まれたときの直し方：`pipeline/ponwarp.py`。導入の絵のぽんを動画の動きに合わせて変形して重ねる。手順は ponwarp.py の先頭。
+     必要なもの：`python3 $PL/ponmask.py <ep>` で `img/pon_mask.png`、ぽんを消した背景の絵 `img/intro_plate.png`（generate_image 0.5cr、
+     medias=[jobs.intro]、「手前の象と持ち物・かばんを消して同じ草と花で埋める、ほかは全部そのまま」）。
+     `cp vid/intro_raw.mp4 vid/intro_raw_kling.mp4` → ponwarp.py → `ffmpeg -c:v libx264 -crf 14 -pix_fmt yuv420p -r 24 vid/intro_raw.mp4` → build）
 
 ## 4. 組み立て（縦・横長）
 
@@ -97,7 +126,7 @@
    HTTP 200 を確かめてから `media_confirm`（type `video`）。
 3. `attach_project_asset`（source `{type: "video_input", id: <media_id>}`、folder は `state.json` の `folder_id`）で2本ともプロジェクトに入れる。
 4. media_id と URL を `epNN.json` の `deliverables` に書く。`status` を `"done"`（目視で気になる点が残れば `"done_with_notes"`）。
-5. **キャプション**：`python3 $PL/caption.py $P/episodes/epNN.json` で `$P/episodes/epNN_caption.txt` を作る（第1〜20回と同じ固定の形。手で書き換えない）。
+5. **キャプション**：`python3 $PL/caption.py $P/episodes/epNN.json` で `$P/episodes/epNN_caption.txt` を作る（第1〜20回と同じ固定の形。冒頭の絵文字だけ `caption_emoji` の1つ目でテーマに合わせる。手で書き換えない）。
    中身は最後の返答にそのまま（コードブロックで）載せる。
 
 ## 5.5 YouTube ショートへの投稿（Metricool）
@@ -105,6 +134,8 @@
 `state.json` の `youtube.enabled` が true のときだけ行う（false なら飛ばす）。
 
 **決まった時刻の実行（スケジュールされたタスク）では予約しない**（`youtube.post_in_scheduled_run` が false のとき）。その場合は `youtube_queue.json` の末尾に `metricool_id: null`・`when: null` で回を足し（episode, theme_ja, video, video_ready, title, text, ai_label: true）、報告に「YouTube 未予約: 第N回」と書くだけにする。予約は、人が見ている対話セッションで「未予約の回を予約して」と頼まれたときに、null の回を番号順に、最後の予約の次の枠から入れる。Metricool コネクタ（`mcp__Metricool_Social_Media_Management__*`）を使う。見えなければ ToolSearch で「Metricool createScheduledPost」を読み込む。使えなければ投稿だけ飛ばして、報告に書く。
+
+**横長の通常動画（YouTube の「動画」）**：第10回から投稿中。予約は対話セッションで「横の動画も予約して」と頼まれたときに行う。タイトル『テーマ』のえいご10こ、説明文はショートのキャプション（冒頭の絵文字はテーマに合わせる）、type "video"、タグはショートの5つ＋「ぽんの英単語」＋テーマ名、公開・子ども向け・AI申告あり・EDUCATION。枠は毎日 07:00 / 12:00 / 17:00 / 21:00。サムネイルは付けない（videoThumbnailUrl は使わない。YouTube 側で「Could not upload video thumbnail」になるため）。予約の記録は GitHub の pon/youtube_long_queue.json。決まった時刻の実行では予約しない。
 
 1. 予約時刻：`youtube.post_time` が `"queue"` なら、`youtube_queue.json` の `queue` の最後の `when` の**次の枠**（`youtube.slots` = 07:30 と 17:00、日本時間。07:30 の次は同じ日の 17:00、17:00 の次は翌日 07:30）。その枠が今から30分以内か過去なら、さらに次の枠にずらす。`"next_slot"` なら今から15分後、`"HH:MM"` なら今日のその時刻。
    - キューの前の回（第2〜20回など）の `metricool_id` が null のまま残っていたら、先にそれらを予約する（`when` がまだ先ならその時刻、過ぎていれば次の空き枠に。`video_ready` が false なら、サンドボックスの `/home/user/epNN/epNN_v.mp4` を media_upload → curl PUT → media_confirm してから。URL は `video` の値と同じ ID になる）。

@@ -70,7 +70,7 @@ def check(ep):
     used = used_set(exclude_ep=ep['episode'])
     seen = set()
     for i, w in enumerate(ws):
-        for k in ('en', 'ja', 'hero', 'scene', 'changes'):
+        for k in ('en', 'ja', 'hero', 'scene', 'b_hero', 'b_scene', 'obj_change', 'char_change'):
             if not w.get(k): err.append('%d語目: %s がない' % (i + 1, k))
         n = norm(w.get('en', ''))
         if n in used: err.append('%d語目 %s は使用済み（第%s回）' % (i + 1, w.get('en'), used[n] or 'avoid'))
@@ -81,7 +81,7 @@ def check(ep):
         if len(w.get('en', '')) > 11: err.append('%d語目 %s は長い（11文字まで。字幕が小さくなる）' % (i + 1, w.get('en')))
     if not re.match(r'^[A-Z][A-Za-z ]*$', ep['theme_en'].rstrip('!')): err.append('theme_en の形 %r' % ep['theme_en'])
     it = ep['intro']
-    for k in ('front_scene', 'prop', 'front_motion', 'prop_rule'):
+    for k in ('front_scene', 'prop', 'front_motion', 'prop_rule', 'setting', 'theme_items', 'back_action'):
         if not it.get(k): err.append('intro.%s がない' % k)
     return err
 
@@ -104,14 +104,22 @@ def main(argv):
             a = jobs.get('a%02d' % (i + 1), {}).get('id')
             if not a: sys.exit('jobs.a%02d.id がない' % (i + 1))
             c = CH[char_of(ep, i)]
-            p = PB['word_second_prefix'].replace('{CHANGES}', ep['words'][i]['changes'].strip().rstrip('.')) + first_prompt(ep, i)
+            w = ep['words'][i]
+            if 'b_scene' in w:   # 第23回から: 2コマ目は「次の瞬間」。モノとキャラのポーズを変える
+                e2 = json.loads(json.dumps(ep)); e2['words'][i]['hero'] = w['b_hero']; e2['words'][i]['scene'] = w['b_scene']
+                p = PB['word_second_prefix'].replace('{OBJ}', w['obj_change'].strip().rstrip('.')).replace('{CHR}', w['char_change'].strip().rstrip('.')) + first_prompt(e2, i)
+            else:                # 第22回まで（changes だけの古い形）
+                p = PB['word_second_prefix_old'].replace('{CHANGES}', w['changes'].strip().rstrip('.')) + first_prompt(ep, i)
             out.append({'index': i + 1, 'params': img_params(p, [a, S['references']['style'], c['ref']])})
     elif stage == 'intro':
         it = ep['intro']
         back = '; '.join(CH[k]['short'] for k in ('hop', 'muffin', 'sky', 'ben'))
         anat = ' '.join(CH[k]['anatomy'] for k in S['rotation'])
-        p = PB['intro_image']
-        for k, v in (('{FRONT_SCENE}', it['front_scene'].strip()), ('{BACK_ROW}', back), ('{ANATOMY_COMMON}', PB['anatomy_common']), ('{ANATOMY_ALL}', anat)):
+        themed = bool(it.get('setting') and it.get('theme_items'))   # 第28回から：背景ごとテーマの場面にする
+        p = PB['intro_image'] if themed else PB['intro_image_old_v1']
+        for k, v in (('{FRONT_SCENE}', it['front_scene'].strip()), ('{BACK_ROW}', back), ('{ANATOMY_COMMON}', PB['anatomy_common']), ('{ANATOMY_ALL}', anat),
+                     ('{THEME_EN}', ep['theme_en'].rstrip('!')), ('{SETTING}', it.get('setting', '').strip()), ('{THEME_ITEMS}', it.get('theme_items', '').strip().rstrip('.')),
+                     ('{BACK_ACTION}', (it.get('back_action') or 'all four smile and wave one hand.').strip())):
             p = p.replace(k, v)
         layout = ep.get('layout_samples') or S['references']['intro_layout_samples']['ids']   # 構図の見本は固定（前の回の絵は使わない）
         p = p.replace('{N_LAYOUT}', {1: 'ONE', 2: 'TWO', 3: 'THREE', 4: 'FOUR'}[len(layout)])
